@@ -1656,10 +1656,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1788809071}
   - component: {fileID: 1788809070}
-  - component: {fileID: 1788809069}
-  - component: {fileID: 1788809068}
   - component: {fileID: 1788809067}
   - component: {fileID: 1788809066}
+  - component: {fileID: 1788809072}
   m_Layer: 0
   m_Name: TargetManager
   m_TagString: Untagged
@@ -1694,38 +1693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da731f922e6a96044a60f33fbf33699d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HighTargetPool
-  targetBase: {fileID: 2627135051368097642, guid: a57facc0ab4ba144e8a7de39761c5d6e,
+  targetBase: {fileID: 2627135051368097642, guid: b5f0d6b4e9ba9704a9e36c5bac0a930b,
     type: 3}
   poolSize: 10
---- !u!114 &1788809068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788809065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6885ffb2669cd7e4ab1a7befb5f48f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicTargetPool
-  targetBase: {fileID: 0}
-  poolSize: 10
---- !u!114 &1788809069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788809065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0a442f40f22424fbadbe320b21b049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TargetFacade
-  basicPool: {fileID: 1788809070}
-  highPool: {fileID: 1788809067}
-  lowPool: {fileID: 1788809066}
 --- !u!114 &1788809070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6885ffb2669cd7e4ab1a7befb5f48f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicTargetPool
-  targetBase: {fileID: 2627135051368097642, guid: b5f0d6b4e9ba9704a9e36c5bac0a930b,
+  targetBase: {fileID: 2627135051368097642, guid: a57facc0ab4ba144e8a7de39761c5d6e,
     type: 3}
   poolSize: 10
 --- !u!4 &1788809071
@@ -1756,6 +1726,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788809072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc907e072435f934b93a9d7eb1d781de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetFacade
+  basicPool: {fileID: 1788809070}
+  highPool: {fileID: 1788809067}
+  lowPool: {fileID: 1788809066}
 --- !u!1 &2018314403
 GameObject:
   m_ObjectHideFlags: 0

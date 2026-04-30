@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Player : MonoBehaviour
 {
+
+    public ICommand activeDecorator;
+
     public const int PLAYER_LIVES = 3;
 
     public const float PLAYER_RADIUS = 0.4F;
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
 
         movementCommand = gameObject.GetComponent<MovementCommand>();
         shootCommand = gameObject.GetComponent<ShootCommand>();
+        activeDecorator = new NormalShootDecorator(shootCommand);
     }
 
     private void PlayerHit()
@@ -96,7 +101,28 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            shootCommand?.Execute();
+            activeDecorator.Execute();
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ActivateTripleShot();
+        }
+    }
+
+    public void ActivateTripleShot()
+    {
+        StartCoroutine(TripleShotTimer());
+    }
+
+    private IEnumerator TripleShotTimer()
+    {
+
+        activeDecorator = new TripleShootDecorator(shootCommand, this);
+
+        yield return new WaitForSeconds(5f);
+
+
+        activeDecorator = new NormalShootDecorator(shootCommand);
     }
 }

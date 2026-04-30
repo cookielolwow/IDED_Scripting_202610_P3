@@ -3,6 +3,8 @@
 [RequireComponent(typeof(Collider))]
 public class Target : MonoBehaviour, IFactoryProduct
 {
+    public int tipoDeTarget = 0;
+
     private const float TIME_TO_DESTROY = 10F;
 
     [SerializeField]
@@ -17,10 +19,20 @@ public class Target : MonoBehaviour, IFactoryProduct
 
     public static event OnTargetDestroyed onTargetDestroyed;
 
-    private void Start()
+    private void OnEnable()
     {
         currentHP = maxHP;
-        Destroy(gameObject, TIME_TO_DESTROY);
+        Invoke("DestroyTarget", TIME_TO_DESTROY);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+    private void DestroyTarget()
+    {
+        TargetFacade.Instance.ReturnTarget(this, tipoDeTarget);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,14 +48,14 @@ public class Target : MonoBehaviour, IFactoryProduct
             if (currentHP <= 0)
             {
                 onTargetDestroyed?.Invoke(scoreAdd);
-                Destroy(gameObject);
+                TargetFacade.Instance.ReturnTarget(this, tipoDeTarget);
             }
         }
         else if (collidedObjectLayer.Equals(Utils.PlayerLayer) ||
             collidedObjectLayer.Equals(Utils.KillVolumeLayer))
         {
             Player.Instance.OnPlayerHit?.Invoke();
-            Destroy(gameObject);
+            TargetFacade.Instance.ReturnTarget(this, tipoDeTarget);
         }
     }
 }

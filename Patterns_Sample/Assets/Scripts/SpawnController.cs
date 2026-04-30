@@ -24,7 +24,13 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    private void SpawnObject()
+    // Hola proe esto es un apunte super experimental para poder explicar y reconocer los cambios de lo que estamos haciendo chajaja
+
+    // SpawnObject antes de la implementación nueva de super TargetFacade,
+    // ahora se obtiene el Target directamente desde la fokin fachada en lugar de crear una instancia a través de la fábrica.
+
+    // Antes:
+    /*private void SpawnObject()
     {
         GameObject spawnGO = TargetFactory.Instance.CreateInstance().gameObject;
 
@@ -35,6 +41,24 @@ public class SpawnController : MonoBehaviour
 
             spawnGO.transform.position = spawnPoint;
             spawnGO.transform.rotation = Quaternion.identity;
+        }
+    }*/
+
+    // Después chajaja:
+    private void SpawnObject()
+    {
+
+        int tipoAleatorio = Random.Range(0, 3);
+
+        Target spawnTarget = TargetFacade.Instance.GetTarget(tipoAleatorio);
+
+        if (spawnTarget != null)
+        {
+            spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(
+                Random.Range(0F, 1F), 1F, transform.position.z));
+
+            spawnTarget.transform.position = spawnPoint;
+            spawnTarget.transform.rotation = Quaternion.identity;
         }
     }
 

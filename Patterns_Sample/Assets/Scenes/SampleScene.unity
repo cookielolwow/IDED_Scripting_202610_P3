@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911879817}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d242ce3de9b93e43ba6f0e803ca5cd0, type: 3}
   m_Name: 
@@ -1646,6 +1646,116 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321410301}
   m_CullTransparentMesh: 0
+--- !u!1 &1788809065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788809071}
+  - component: {fileID: 1788809070}
+  - component: {fileID: 1788809069}
+  - component: {fileID: 1788809068}
+  - component: {fileID: 1788809067}
+  - component: {fileID: 1788809066}
+  m_Layer: 0
+  m_Name: TargetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1788809066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43fc7c4b4f6b9b4f98ad5d1b474d792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LowTargetPool
+  targetBase: {fileID: 2627135051368097642, guid: 66c2fad4b964999488879a54fc3c5564,
+    type: 3}
+  poolSize: 10
+--- !u!114 &1788809067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da731f922e6a96044a60f33fbf33699d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighTargetPool
+  targetBase: {fileID: 2627135051368097642, guid: a57facc0ab4ba144e8a7de39761c5d6e,
+    type: 3}
+  poolSize: 10
+--- !u!114 &1788809068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6885ffb2669cd7e4ab1a7befb5f48f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicTargetPool
+  targetBase: {fileID: 0}
+  poolSize: 10
+--- !u!114 &1788809069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0a442f40f22424fbadbe320b21b049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetFacade
+  basicPool: {fileID: 1788809070}
+  highPool: {fileID: 1788809067}
+  lowPool: {fileID: 1788809066}
+--- !u!114 &1788809070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6885ffb2669cd7e4ab1a7befb5f48f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicTargetPool
+  targetBase: {fileID: 2627135051368097642, guid: b5f0d6b4e9ba9704a9e36c5bac0a930b,
+    type: 3}
+  poolSize: 10
+--- !u!4 &1788809071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788809065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.88766, y: -0, z: -7.51714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018314403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,3 +1927,4 @@ SceneRoots:
   - {fileID: 1134325182}
   - {fileID: 148556494}
   - {fileID: 911879819}
+  - {fileID: 1788809071}

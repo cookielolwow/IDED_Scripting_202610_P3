@@ -92,10 +92,7 @@ public class Player : MonoBehaviour
 
         if (HVal != 0F)
         {
-            //if (movementCommand != null)
-            //{
-            //    movementCommand.Execute();
-            //}
+       
             movementCommand?.Execute();
         }
 
@@ -120,7 +117,7 @@ public class Player : MonoBehaviour
 
         activeDecorator = new TripleShootDecorator(shootCommand, this);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
 
         activeDecorator = new NormalShootDecorator(shootCommand);
